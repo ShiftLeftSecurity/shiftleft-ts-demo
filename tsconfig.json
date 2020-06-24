@@ -1,0 +1,31 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "module": "commonjs",
+        "skipLibCheck": true,
+        "target": "es6",
+        "outDir": "out",
+        "lib": [
+            "dom",
+            "es6"
+        ],
+        "sourceMap": true,
+        "rootDir": ".",
+        /* Strict Type-Checking Option */
+        "strict": false,   /* enable all strict type-checking options */
+        /* Additional Checks */
+        "noUnusedLocals": false, /* Report errors on unused locals. */
+        "noImplicitReturns": false, /* Report error when not all code paths in function return a value. */
+        "noFallthroughCasesInSwitch": false, /* Report errors for fallthrough cases in switch statement. */
+        "noUnusedParameters": false,  /* Report errors on unused parameters. */
+        "checkJs": false,
+        "noImplicitThis": false,
+        "strictNullChecks": false,
+        "esModuleInterop": true
+    },
+    "exclude": [
+        "node_modules",
+        "out",
+        "resources/**"
+    ]
+}
