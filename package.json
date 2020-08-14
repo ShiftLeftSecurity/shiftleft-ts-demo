@@ -1,6 +1,9 @@
 {
   "name": "@hoolicorp/shiftleft-ts-example",
   "version": "1.0.0",
+  "engines": {
+    "node": "=6.14.1"
+  },
   "description": "Vulnerable app built with TypeScript, expressJS and mongoDB",
   "main": "index.js",
   "scripts": {
