@@ -22,7 +22,7 @@
     "express-session": "^1.17.0",
     "form-data": "^2.5.1",
     "mongodb": "^3.3.3",
-    "pug": "^2.0.4"
+    "pug": "^3.0.1"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
