@@ -28,6 +28,11 @@ jobs:
       id: extract_branch
     - name: NextGen Static Analysis JSON
       run: ${GITHUB_WORKSPACE}/sl analyze --strict --wait --app shiftleft-ts-demo --container 18fgsa/s3-resource --tag branch=${{ github.head_ref || steps.extract_branch.outputs.branch }} --js --cpg . -- --ts
+      env:
+        SHIFTLEFT_ACCESS_TOKEN: ${{ secrets.SHIFTLEFT_ACCESS_TOKEN }}
+        SHIFTLEFT_API_HOST: www.shiftleft.io
+        SHIFTLEFT_GRPC_TELEMETRY_HOST: telemetry.shiftleft.io:443
+        SHIFTLEFT_GRPC_API_HOST: api.shiftleft.io:443
     - name: NextGen Static Analysis Kubernetes
       run: ${GITHUB_WORKSPACE}/sl analyze --strict --wait --app shiftleft-ts-demo --container 18fgsa/s3-resource --tag branch=${{ github.head_ref || steps.extract_branch.outputs.branch }}  --kubernetes
       env:
