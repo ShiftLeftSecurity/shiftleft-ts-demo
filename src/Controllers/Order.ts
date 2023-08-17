@@ -9,7 +9,7 @@ export class Order {
     return key;
   }
   encryptData(secretText: string) {
-    // Weak encryption
+    // Weak encryption d
     const desCipher = crypto.createCipheriv('des', encryptionKey, "foo");
     return desCipher.update(secretText, 'utf8', 'hex');
   }
