@@ -1,8 +1,7 @@
-
 ---
 # This workflow integrates ShiftLeft NG SAST with GitHub
 # Visit https://docs.shiftleft.io for help
-name: ShiftLeft
+name: Qwiet
 
 on:
   pull_request:
@@ -13,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Download ShiftLeft CLI
+    - name: Download Qwiet CLI
       run: |
         curl https://cdn.shiftleft.io/download/sl > ${GITHUB_WORKSPACE}/sl && chmod a+rx ${GITHUB_WORKSPACE}/sl
     # ShiftLeft requires Java 1.8. Post the package step override the version
@@ -26,8 +25,9 @@ jobs:
       shell: bash
       run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
       id: extract_branch
+          # the sl analyze command below needs to have app name specified and location of TS files. In addition, the container is pointing to Qwiets Registry and should be removed or edited for customers info
     - name: NextGen Static Analysis
-      run: ${GITHUB_WORKSPACE}/sl analyze --strict --wait --app shiftleft-ts-demo --container 18fgsa/s3-resource --tag branch=${{ github.head_ref || steps.extract_branch.outputs.branch }} --js --cpg . -- --ts
+      run: ${GITHUB_WORKSPACE}/sl analyze --strict --wait --app Qwiet-ts-GH --container 18fgsa/s3-resource --tag branch=${{ github.head_ref || steps.extract_branch.outputs.branch }} --js --cpg . -- --ts
       env:
         SHIFTLEFT_ACCESS_TOKEN: ${{ secrets.SHIFTLEFT_ACCESS_TOKEN }}
         SHIFTLEFT_API_HOST: www.shiftleft.io
